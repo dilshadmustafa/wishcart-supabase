@@ -40,7 +40,7 @@ It is hosted in Supabase Cloud and can be scaled seamlessly.
 
 **Self-Hosting Option:**
 
-Supabase supports Self-Hosting. So it can be hosted On-Prem or in other cloud providers like AWS, Azure, Google, Digital Ocean, etc.
+Supabase supports Self-Hosting. So it can be hosted in your own on-premises server or in other cloud providers like AWS, Azure, Google, Digital Ocean, etc.
 
 License
 -------------
