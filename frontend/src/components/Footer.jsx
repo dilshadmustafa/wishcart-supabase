@@ -8,9 +8,8 @@ const Footer = () => {
 
             <Row>   
                 <Col className="text-center py-3">
-                    MyShop {currentYear} | <a href="https://github.com/dilshadmustafa/myshop-demo" target="_blank" rel="noreferrer">MyShop Demo</a>
-                    
-                    </Col>
+                    WishCart &copy; {currentYear} Dilshad Mustafa | All rights reserved. | <a href="https://github.com/dilshadmustafa/wishcartlive" target="_blank" rel="noreferrer">WishCart</a>
+                </Col>
             </Row>
 
         </Container>

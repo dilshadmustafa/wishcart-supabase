@@ -3,7 +3,7 @@ Welcome to MyShop
 Introduction
 -------------
 
-**MyShop** is an eCommerce Web App built using React, Redux, Node.js MERN stack. It implements Security, Authentication, Authorization, Payment Gateway, Inventory Management, Order Management, and User Management. It supports various database back-end options MongoDB, MySQL, PostgreSQL, CockroachDB and Firebase/Supabase.
+**WishCart** is an eCommerce Web App built using React, Redux, Node.js, Supabase stack. It implements Security, Authentication, Authorization, Payment Gateway, Inventory Management, Order Management, and User Management. It is hosted in Vercel and Supabase Cloud.
 
 > **Security Features:**
 
@@ -32,48 +32,16 @@ Also in .gitignore file there is an entry to ignore .env files. So git push will
 
 > **Authentication Features:**
 
-Authentication using JWT and Google Authentication.
+Implements Authentication using Supabase Auth and supports various OAuth providers like Google Authentication, Facebook, GitHub, Discord, etc.
 
-> **Multiple Back-end Database Options:**
+> **Scalable Back-end Database Option:**
 
-Supports various database back-end options MongoDB, MySQL, PostgreSQL, CockroachDB and Firebase/Supabase.
+It is hosted in Supabase Cloud and can be scaled seamlessly.
 
-**PostgreSQL/CockroachDB Connection Pool crdbpool.js**
+**Self-Hosting Option:**
 
-```
-require('dotenv').config();
-const { Pool } = require("pg");
+Supabase supports Self-Hosting. So it can be hosted On-Prem or in other cloud providers like AWS, Azure, Google, Digital Ocean, etc.
 
-class CrDbPool {
-
-    static #instance = null;
-
-    constructor() {
-        if (CrDbPool.#instance instanceof CrDbPool)
-            return CrDbPool.#instance;
-
-        const connectionString = process.env.CRDB_URI;
-        this.pool = new Pool({
-          connectionString,
-          application_name: "test2",
-        });
-        Object.freeze(this.pool);
-        Object.freeze(this);
-        CrDbPool.#instance = this;
-
-    }
-
-    getPool() {
-        return this.pool;
-    }
-};
-
-const crDbPool = new CrDbPool();
-
-module.exports = {
-    CrDbPool, crDbPool
-};
-```
 License
 -------------
 
