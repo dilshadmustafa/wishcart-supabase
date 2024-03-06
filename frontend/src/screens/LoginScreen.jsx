@@ -10,14 +10,14 @@ const LoginScreen = () => {
 
   const navigate = useNavigate();
 
-  supabase.auth.onAuthStateChange(async (event) => {
+  /*supabase.auth.onAuthStateChange(async (event) => {
     if (event === "SIGNED_IN") {
       navigate('/success');
     } else {
       navigate('/');
     }
   });
-
+*/
 
   return (
     <Auth
