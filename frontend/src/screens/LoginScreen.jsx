@@ -11,9 +11,9 @@ const LoginScreen = () => {
   const navigate = useNavigate();
 
   supabase.auth.onAuthStateChange(async (event) => {
-    if (event === "SIGNED_IN") {
+    if (event !== "SIGNED_OUT") {
       navigate('/success');
-    } else if (event === "SIGNED_OUT"){
+    } else {
       navigate('/');
     }
   });
@@ -31,3 +31,4 @@ const LoginScreen = () => {
   };
 
 export default LoginScreen;
+

@@ -13,7 +13,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
-import SuccessScreen from './screens/LoginScreen';
+import SuccessScreen from './screens/SuccessScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
