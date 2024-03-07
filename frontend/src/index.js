@@ -14,10 +14,16 @@ import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import SuccessScreen from './screens/SuccessScreen';
+import store from './store';
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />} >
+    <Route path="/" element={
+      <Provider store={store}>
+        <App />
+      </Provider>
+    } >
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route index={true} path="/login" element={<LoginScreen />} />
       <Route index={true} path="/success" element={<SuccessScreen />} />
