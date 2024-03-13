@@ -14,7 +14,7 @@ import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import SuccessScreen from './screens/SuccessScreen';
-import store from './store';
+import store from './slice/store';
 import { Provider } from "react-redux";
 
 const router = createBrowserRouter(

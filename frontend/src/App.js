@@ -4,29 +4,38 @@ import Footer from './components/Footer'
 import { Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from './slice/authSlice'
-
+import { useState } from 'react'
+import supabase from './config/supabaseClient'
 
 const App = () => {
 
   const { isLoggedin, user } = useSelector(state => state.auth)
   const dispatch = useDispatch()
-
-  console.log("App isLoggedin " + isLoggedin)
-  console.log("App user " + user)
+  const [session, setSession] = useState(null);
   const sdetails = JSON.parse(localStorage.getItem('sb-gkayqjvsuoowqpbrhhpx-auth-token'));
   console.log("App sdetails email" + sdetails?.user?.email)
 
-  if (sdetails !== null && sdetails?.user?.email !== null && user === null) {
+  supabase.auth.onAuthStateChange((event, session) => {
+    console.log("App event " + event)
+    // looks like we need to wait for 30s
+    if (event === "SIGNED_IN") {
+      console.log("App inside")
+      setSession(session);
+      console.log("App session " + session)
+      if (sdetails !== null && sdetails?.user?.email !== null && user === null) {
+        dispatch(authActions.login({ user : sdetails.user.email}));
+      }
+    }
+  });
 
-    dispatch(authActions.login({ user : sdetails.user.email}));
+  console.log("App isLoggedin " + isLoggedin)
 
-  }
 
 
 
   return (
     <>
-    <Header/>
+    <Header session = { session } />
       <main className='py-3'>
         <Container>
           <Outlet/>
